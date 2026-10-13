@@ -516,21 +516,31 @@ def extract_pdf_text(upload) -> str:
 
 def extract_invoice_fields(text: str) -> dict[str, str]:
 
+    
     patterns = {
-
-        "invoice_number": [r"Invoice\s*(?:No**\\.**?|Number|#)\s*[:#**\\-**]?\s*([A-Za-z0-9**\\-**/]+)", r"Bill\s*(?:No**\\.**?|Number|#)\s*[:#**\\-**]?\s*([A-Za-z0-9**\\-**/]+)"],
-
-        "supplier": [r"Supplier\s*[:**\\-**]\s*([^**\n**]+)", r"Vendor\s*[:**\\-**]\s*([^**\n**]+)"],
-
-        "invoice_total": [r"(?:Grand\s+Total|Invoice\s+Total|Total\s+Amount|Net\s+Payable|Amount\s+Due)\s*[:**\\-**]?\s*(?:INR|Rs**\\.**?|₹)?\s*([\d,]+(?:**\\.**\d{1,2})?)"],
-
-        "quantity": [r"Quantity\s*[:**\\-**]?\s*([\d,]+(?:**\\.**\d+)?)", r"Qty\s*[:**\\-**]?\s*([\d,]+(?:**\\.**\d+)?)"],
-
-        "rate": [r"(?:Unit\s+Price|Unit\s+Rate|Rate)\s*[:**\\-**]?\s*(?:INR|Rs**\\.**?|₹)?\s*([\d,]+(?:**\\.**\d{1,2})?)"],
-
-        "gst": [r"GST(?:\s+Amount)?\s*[:**\\-**]?\s*(?:INR|Rs**\\.**?|₹)?\s*([\d,]+(?:**\\.**\d{1,2})?)"],
-
+        "invoice_number": [
+            r"Invoice\s*(?:No\.?|Number|#)\s*[:#\-]?\s*([A-Za-z0-9/\-]+)",
+            r"Bill\s*(?:No\.?|Number|#)\s*[:#\-]?\s*([A-Za-z0-9/\-]+)",
+        ],
+        "supplier": [
+            r"Supplier\s*[:\-]\s*([^\n]+)",
+            r"Vendor\s*[:\-]\s*([^\n]+)",
+        ],
+        "invoice_total": [
+            r"(?:Grand\s+Total|Invoice\s+Total|Total\s+Amount|Net\s+Payable|Amount\s+Due)\s*[:\-]?\s*(?:INR|Rs\.?|₹)?\s*([\d,]+(?:\.\d{1,2})?)"
+        ],
+        "quantity": [
+            r"Quantity\s*[:\-]?\s*([\d,]+(?:\.\d+)?)",
+            r"Qty\s*[:\-]?\s*([\d,]+(?:\.\d+)?)",
+        ],
+        "rate": [
+            r"(?:Unit\s+Price|Unit\s+Rate|Rate)\s*[:\-]?\s*(?:INR|Rs\.?|₹)?\s*([\d,]+(?:\.\d{1,2})?)"
+        ],
+        "gst": [
+            r"GST(?:\s+Amount)?\s*[:\-]?\s*(?:INR|Rs\.?|₹)?\s*([\d,]+(?:\.\d{1,2})?)"
+        ],
     }
+
 
     out = {key: "" for key in patterns}
 
