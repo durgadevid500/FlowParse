@@ -356,6 +356,31 @@ div[data-testid="stNumberInput"] button {
 [data-testid="stFormSubmitButton"] > button[kind="primary"] {
     color: #ffffff !important;
 }
+/* Fix dashboard date-range dropdown */
+[data-testid="stSelectbox"] [data-baseweb="select"] > div {
+    background-color: #ffffff !important;
+    border: 1px solid #b8c9e6 !important;
+}
+
+[data-testid="stSelectbox"] [data-baseweb="select"] div,
+[data-testid="stSelectbox"] [data-baseweb="select"] span {
+    color: #14213d !important;
+    -webkit-text-fill-color: #14213d !important;
+}
+
+[data-testid="stSelectbox"] svg {
+    fill: #14213d !important;
+    color: #14213d !important;
+}
+
+/* Improve primary button text contrast */
+.stButton > button[kind="primary"],
+[data-testid="stFormSubmitButton"] > button[kind="primary"] {
+    background-color: #416bff !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border-color: #416bff !important;
+}
 
 
 
