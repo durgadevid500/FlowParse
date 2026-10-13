@@ -319,6 +319,45 @@ div[data-testid="stNumberInput"] button {
     color: #172033 !important;
 }
 
+/* Improve readability of all dashboard inputs */
+[data-testid="stSelectbox"] div[data-baseweb="select"] > div,
+[data-testid="stMultiSelect"] div[data-baseweb="select"] > div {
+    background-color: #ffffff !important;
+    color: #172033 !important;
+    border-color: #b8c9e6 !important;
+}
+
+[data-testid="stSelectbox"] div[data-baseweb="select"] *,
+[data-testid="stMultiSelect"] div[data-baseweb="select"] * {
+    color: #172033 !important;
+    -webkit-text-fill-color: #172033 !important;
+}
+
+[data-testid="stTextInput"] input,
+[data-testid="stNumberInput"] input,
+[data-testid="stDateInput"] input {
+    background-color: #ffffff !important;
+    color: #172033 !important;
+    -webkit-text-fill-color: #172033 !important;
+    border: 1px solid #b8c9e6 !important;
+}
+
+[data-testid="stFileUploader"] section {
+    background-color: #ffffff !important;
+    color: #172033 !important;
+}
+
+.stButton > button,
+[data-testid="stFormSubmitButton"] > button {
+    color: #172033 !important;
+}
+
+.stButton > button[kind="primary"],
+[data-testid="stFormSubmitButton"] > button[kind="primary"] {
+    color: #ffffff !important;
+}
+
+
 
 </style>
 
