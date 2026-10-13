@@ -300,6 +300,26 @@ hr{border-color:#e2e8f0!important}
 [data-testid="stFileUploader"] section{background:#fff!important}
 @media(max-width:800px){.block-container{padding-left:.75rem!important;padding-right:.75rem!important}.fp-kpi-card{height:auto;min-height:112px}.fp-table{font-size:10px}}
 
+/* Invoice fields: white background, dark readable text */
+div[data-testid="stTextInput"] input,
+div[data-testid="stNumberInput"] input {
+    background-color: #ffffff !important;
+    color: #172033 !important;
+    -webkit-text-fill-color: #172033 !important;
+    border: 1px solid #b8c9e6 !important;
+    border-radius: 8px !important;
+}
+
+div[data-testid="stTextInput"] label,
+div[data-testid="stNumberInput"] label {
+    color: #172033 !important;
+}
+
+div[data-testid="stNumberInput"] button {
+    color: #172033 !important;
+}
+
+
 </style>
 
 """, unsafe_allow_html=True)
@@ -956,6 +976,8 @@ if page == "Overview":
         if st.button("Configure Validation Rules  ›", key="configure_rules", type="primary", use_container_width=True):
 
             st.session_state["pending_page"] = "Validation Rules"; st.rerun()
+            # Invoice input field styling
+
 
 
 
@@ -986,6 +1008,8 @@ elif page == "Upload Invoice":
                 st.subheader("Invoice details")
 
                 left, right = st.columns(2)
+            
+
 
                 with left:
 
